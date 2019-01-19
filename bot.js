@@ -30,7 +30,15 @@ client.user.setGame(`JR server`,"https://www.twitch.tv/ledom999")
   console.log('')
   console.log('')
 });
- client.on('message', message => {
+ const Discord = require("discord.js");
+const client = new Discord.Client();
+client.on('ready', () => {
+  client.user.setGame(`on 0 servers | *help | by aslan mal codes .`,'https://www.twitch.tv/v5bz');
+  console.log('---------------');
+  console.log(' Bot Is Online')
+  console.log('---------------')
+});
+client.on('message', message => {
    let embed = new Discord.RichEmbed()
 
     let args = message.content.split(' ').slice(1).join(' ');
@@ -49,7 +57,7 @@ if(message.content.split(' ')[0] == '*bc') {
     .setColor('#ff0000')
                  .addField('ّ', args)
             m.send(``,{embed: bc});
-});
- 
- 
+        });
+    }
+})
 client.login(process.env.BOT_TOKEN);
